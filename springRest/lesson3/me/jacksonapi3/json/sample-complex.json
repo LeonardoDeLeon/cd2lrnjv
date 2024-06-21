@@ -1,0 +1,12 @@
+{
+    "id": 45,
+    "name": "Srini",
+    "city": "BL",
+    "course":{
+        "cid":101,
+        "cname":"Design Patterns",
+        "instructorName":"Navin Reddy",
+        "price":4100
+    },
+    "hobbies":["scrolling insta reels","wasting time","losing focus"]
+}
