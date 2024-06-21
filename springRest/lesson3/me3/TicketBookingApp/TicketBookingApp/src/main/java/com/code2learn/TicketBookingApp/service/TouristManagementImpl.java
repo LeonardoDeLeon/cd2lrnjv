@@ -1,6 +1,7 @@
 package com.code2learn.TicketBookingApp.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,22 @@ public class TouristManagementImpl implements ITouristManagement
     {
         return repo.findById(id)
             .orElseThrow(()->new TouristNotFoundException("Tourist not found with id : "+id));
+    }
+
+    @Override
+    public String updateTouristInfo(Tourist tourist) 
+    {
+        Integer id=tourist.getTid();
+        Optional<Tourist> optional=repo.findById(id);
+        if(optional.isPresent())
+        {
+            repo.save(tourist);
+            return "Tourist  info with id "+id+" is updated";
+        }
+        else
+        {
+            throw new TouristNotFoundException("Tourist with given info not found");
+        }
     }
 
 }
