@@ -2,14 +2,14 @@ package com.code2learn.REST1.pojo;
 
 public class Alien 
 {
-    private Integer Id;
+    private Integer id;
     private String name;
     private String city;
     public Integer getId() {
-        return Id;
+        return id;
     }
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
     public String getName() {
         return name;
@@ -25,7 +25,7 @@ public class Alien
     }
     @Override
     public String toString() {
-        return "Alien [Id=" + Id + ", name=" + name + ", city=" + city + "]";
+        return "Alien [id=" + id + ", name=" + name + ", city=" + city + "]";
     }
 
     
