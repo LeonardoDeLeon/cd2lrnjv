@@ -52,5 +52,42 @@ public class TouristManagementImpl implements ITouristManagement
         }
     }
 
+    @Override
+    public String updateTouristInfoById(Integer id, Double budget) 
+    {
+        Optional<Tourist> optional=repo.findById(id);
+        if(optional.isPresent())
+        {
+            Tourist tourist=optional.get();
+            tourist.setBudget(budget);
+            repo.save(tourist);
+            return "Tourist  info with id "+id+" is updated";
+        }
+        else
+        {
+            throw new TouristNotFoundException("Tourist with given info not found");
+        }
+    }
+
+    @Override
+    public String deleteTouristById(Integer id) 
+    {
+        Optional<Tourist> optional=repo.findById(id);
+        if(optional.isPresent())
+        {
+            // option 1
+            // Tourist tourist=optional.get();
+            // repo.delete(tourist);
+
+            // option 2 
+            repo.deleteById(id);
+            return "Tourist  info with id "+id+" is deleted";                    
+        }
+        else
+        {
+            throw new TouristNotFoundException("Tourist with given info not found to delete");
+        }        
+    }
+
 }
 
