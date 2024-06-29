@@ -1,7 +1,5 @@
 package com.code2learn.TicketBookingWebApp.service;
 
-import java.net.URI;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
