@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Application</title>
+</head>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .wrapper {
+        margin-top: 20px;
+    }
+    .outer {
+        background-color: bisque;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        width: 80%;
+        margin: 5px;
+        border-radius: 3px;
+
+    }
+    .inner {
+        margin: 5px 10px;
+        align-items: center;
+        width: 60%;
+        padding: 10px;     
+    }
+    a , input[type=submit]{
+        width: %;
+        padding: 10px 20px;
+        text-decoration: none;
+        cursor: point60er;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+        background-color: floralwhite;
+        color: brown;
+    }
+    a:hover, input[type=submit]:hover{
+        background-color: coral;
+        color: bisque;
+    }
+</style>
+<body>
+    <center>
+        <h1>Customer Relationship Management Application</h1>
+        <a th:href="@{/showform}">Register</a>
+        <div class="wrapper">
+            <div class="outer">
+                <div class="inner">
+                    Id
+                </div>
+                <div class="inner">
+                    First Name
+                </div>
+                <div class="inner">
+                    Last Name
+                </div>
+                <div class="inner">
+                    City
+                </div>
+                <div class="inner">
+                    Update Info
+                </div>
+                <div class="inner">
+                    Delete Info
+                </div>
+            </div>
+            <div th:each="customer:${customers}">              
+                <div class="outer">
+                    <div class="inner" th:text="${customer.id}">
+                       
+                    </div>
+                    <div class="inner" th:text="${customer.firstName}">
+                        
+                    </div>
+                    <div class="inner" th:text="${customer.lastName}">
+                       
+                    </div>
+                    <div class="inner" th:text="${customer.city}">
+                        
+                    </div>
+                    <div class="inner">
+                        <form action="#" 
+                                th:action="@{/updateForm}" 
+                                method="GET">
+                            <input type="hidden" 
+                                    name="customerId"
+                                    th:value="${customer.id}" />
+
+                            <input type="submit" value="Update">
+                        </form>
+                    </div>
+                    <div class="inner">
+                        <form action="#" 
+                                th:action="@{/deleteData}"
+                                method="GET">
+                            <input type="hidden" 
+                                    name="customerId"
+                                    th:value="${customer.id}" />
+                            <input type="submit" value="Delete">                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>
