@@ -28,13 +28,17 @@ public class StudentInfoServiceImpl implements IStudentInfoService {
     public StudentInfo getStudentInfoById(Long id) {
         return repo.findById(id)
                 .orElseThrow(() -> 
-                    new NoSuchElementException("Student info not found with id "+id));
-             
+                    new NoSuchElementException("Student info not found with id "+id));    
     }
 
     @Override
     public void deleteStudentInfoById(Long id) {
         repo.deleteById(id);
+    }
+
+    @Override
+    public StudentInfo updateStudentInfo(StudentInfo studentInfo) {
+        return repo.save(studentInfo);
     }
 
 }

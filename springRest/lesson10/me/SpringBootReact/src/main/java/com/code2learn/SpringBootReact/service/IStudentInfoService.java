@@ -8,5 +8,6 @@ public interface IStudentInfoService {
     public List<StudentInfo> getAllStudentInfo();
     public StudentInfo saveStudentInfo(StudentInfo studentInfo);
     public StudentInfo getStudentInfoById(Long id);
+    public StudentInfo updateStudentInfo(StudentInfo studentInfo);
     public void deleteStudentInfoById(Long id);
 }
